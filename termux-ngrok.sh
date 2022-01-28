@@ -1,26 +1,28 @@
 #!/bin/dash
-# Desenvolvido por Tchelo Noob
-atualizar='\033[1;32m'
-echo "$atualizar Atualizando repositório..."
+# Утилиту перевел: https://t.me/lamer112311 для https://t.me/smoke_software
+
+# Оригинальный репозиторий: https://github.com/Marcel0Sousa/termux-ngrok
+# Original repo: https://github.com/Marcel0Sousa/termux-ngrok
+
+echo "Обновление репозитория"
 apt update && upgrade -y
 apt install -y wget
 clear
-k='\033[01;32m'
 echo
-echo "${k}████████╗ ██████╗██╗  ██╗███████╗██╗      ██████╗ ";
-echo "${k}╚══██╔══╝██╔════╝██║  ██║██╔════╝██║     ██╔═══██╗";
-echo "${k}   ██║   ██║     ███████║█████╗  ██║     ██║   ██║";
-echo "${k}   ██║   ██║     ██╔══██║██╔══╝  ██║     ██║   ██║";
-echo "${k}   ██║   ╚██████╗██║  ██║███████╗███████╗╚██████╔╝";
-echo "${k}   ╚═╝    ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ";
-echo "${k} /_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/";
+echo "$████████╗ ██████╗██╗  ██╗███████╗██╗      ██████╗ ";
+echo "$╚══██╔══╝██╔════╝██║  ██║██╔════╝██║     ██╔═══██╗";
+echo "$   ██║   ██║     ███████║█████╗  ██║     ██║   ██║";
+echo "$   ██║   ██║     ██╔══██║██╔══╝  ██║     ██║   ██║";
+echo "$   ██║   ╚██████╗██║  ██║███████╗███████╗╚██████╔╝";
+echo "$   ╚═╝    ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ";
+echo "$ /_/_/_/_[By @lamer112311 for @smoke_software]_/_/";
 echo
-echo "Deseja instalar o Ngrok? [Y/n]"
+echo "Установить Ngrok? [Y - да /n - нет]>> "
 read opcao
 case $opcao in
 y)
 echo
-echo "Downloading Termux-ngrok..."
+echo "Установка Termux-ngrok..."
 case `dpkg --print-architecture` in
 aarch64)
     architectureURL="arm64" ;;
@@ -35,7 +37,7 @@ i*86)
 x86_64)
     architectureURL="amd64" ;;
 *)
-    echo "Arquitetura desconhecida"
+    echo "(X) Неизвестная архитектура системы (X)"
 esac
 
 wget "https://github.com/tchelospy/NgrokTest/blob/master/ngrok-stable-linux-${architectureURL}.zip?raw=true" -O ngrok.zip
@@ -44,19 +46,19 @@ cat ngrok > /data/data/com.termux/files/usr/bin/ngrok
 chmod 700 /data/data/com.termux/files/usr/bin/ngrok
 rm ngrok ngrok.zip
 clear
-echo "${k}███╗   ██╗ ██████╗ ██████╗  ██████╗ ██╗  ██╗";
-echo "${k}████╗  ██║██╔════╝ ██╔══██╗██╔═══██╗██║ ██╔╝";
-echo "${k}██╔██╗ ██║██║  ███╗██████╔╝██║   ██║█████╔╝ ";
-echo "${k}██║╚██╗██║██║   ██║██╔══██╗██║   ██║██╔═██╗ ";
-echo "${k}██║ ╚████║╚██████╔╝██║  ██║╚██████╔╝██║  ██╗";
-echo "${k}╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝";
+echo "$███╗   ██╗ ██████╗ ██████╗  ██████╗ ██╗  ██╗";
+echo "$████╗  ██║██╔════╝ ██╔══██╗██╔═══██╗██║ ██╔╝";
+echo "$██╔██╗ ██║██║  ███╗██████╔╝██║   ██║█████╔╝ ";
+echo "$██║╚██╗██║██║   ██║██╔══██╗██║   ██║██╔═██╗ ";
+echo "$██║ ╚████║╚██████╔╝██║  ██║╚██████╔╝██║  ██╗";
+echo "$╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝";
 echo
-echo "Exemplo de comando (ngrok http 80\nOu ngrok para ajuda)"
+echo "Пример команды (ngrok http 8080 \nИли ngrok для справки)"
 ;;
 
 n)
 clear
-echo "Ngrok não instalado :("
+echo "ОШИБКА! Не удалось установить Ngrok"
 echo
 esac
 
